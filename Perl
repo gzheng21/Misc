@@ -1,0 +1,66 @@
+ parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}'\' \> {}.filter ::: $(ls *vcf.gz | head -n5)
+  759   parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}'\' \> {}.filter ::: $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5)
+  760   parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}'\' \> {/}.filter ::: $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5)
+  761  fg
+  762  bg
+  763  top
+  764  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i##/}.filter";done
+  765  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%/}.filter";done
+  766  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i#/}.filter";done
+  767  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  768  ls
+  769  less  008.52.vcf.gz.filter
+  770*
+  771  perl -lane 'print $_,"\t",$_[0]'  008.52.vcf.gz.filter | less
+  772  /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl  -lane 'print $_,"\t",$ARGV[0]'  008.52.vcf.gz.filter | less
+  773  /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl  -lane 'print $_,"\t",$AGRV[0]'  008.52.vcf.gz.filter | less
+  774  /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl  -lane 'print $_,"\t",$ARGV[1]'  008.52.vcf.gz.filter | less
+  775  /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl  -lane 'print $_,"\t",$ARGV'  008.52.vcf.gz.filter | less
+  776   parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t","{/}";}'\' \> {/}.filter ::: $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1)
+  777  bg
+  778  llrt
+  779  ls
+  780  ls -lt
+  781  less 008.52.vcf.gz.filter
+  782*
+  783  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",$x;}' -- -x=$i ;done | less
+  784  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",$i;}' -- -x=$i ;done | less
+  785  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",$i;}' ;done | less
+  786  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",${i%%/};}' -- -x=$i ;done | less
+  787  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",$i;}' -- -x=$i ;done | less
+  788  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t",$x;}' -- -x=$i ;done | less
+  789  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1);do  less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -slane 'if($F[5]<0.0005 && $F[5] ne "."){$x=~s/.*\///g;print $F[0],"\t",$F[1],"\t",$F[5],"\t",$x;}' -- -x=$i ;done | less
+  790  history
+  791  less ~/.bash_history
+  792  less /home/chenr6/.bashrc
+  793  less /home/chenr6/linuxhis/myhistory
+  794  less /home/chenr6/linuxhis/myhistory  | grep parallel
+  795  less /home/chenr6/.bashrc
+  796  history
+  797   parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t","{/}";}'\' \> {/}.filter ::: $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz)
+  798  parallel less {} \| /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane \''if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5],"\t","{/}";}'\' \> {/}.filter ::: $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n1)
+  799   less  008.52.vcf.gz.filter
+  800  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.0005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  801  less 010.vcf.gz.filter
+  802  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.00005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  803  less 010.vcf.gz.filter
+  804  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.00005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  805  010.vcf.gz.filter
+  806  less 010.vcf.gz.filter
+  807  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.00005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  808  less 994.21.vcf.gz
+  809  less 994.21.vcf
+  810  less 994.vcf.gz.filter
+  811  less 977.vcf.gz.filter
+  812  less 963.1.vcf.gz
+  813  less 010.vcf.gz.filter
+  814  less /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/931.vcf.gz
+  815  less /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/931.vcf.gz.filter
+  816  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n5);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.00005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  817  less 008.6.vcf.gz.filter
+  818  for i in $(ls /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/*vcf.gz | head -n15);do echo "less $i | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if($F[5]<0.00005 && $F[5] ne "."){print $F[0],"\t",$F[1],"\t",$F[5];}' > ${i%%/}.filter";done
+  819  less 041.2.vcf.gz
+  820  less 041.2.vcf.gz.filter
+  821  history
+[zhengg@cgg ~]$
+less /scratch/cgg/weiq1/result/BioVU-06162017/EPACTS/EPACTS/870.4.vcf.gz | /usr/local/cgg/software/perl/perls/perl-5.24.1/bin/perl -lane 'if([5]<0.00005 && [5] ne .){print [0],t,[1],t,[5];}' > /scratch/cgg/weiq1/
